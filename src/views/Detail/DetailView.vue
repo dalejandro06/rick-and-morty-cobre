@@ -36,44 +36,53 @@ onMounted(async () => {
 });
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .DetailView {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	margin-top: 2rem;
-}
-.DetailView__card {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	background: #fff;
-	border-radius: 12px;
-	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
-	padding: 2rem 2.5rem;
-	min-width: 260px;
-}
-.DetailView__image {
-	width: 120px;
-	height: 120px;
-	border-radius: 50%;
-	object-fit: cover;
-	margin-bottom: 1rem;
-}
-.DetailView__name {
-	margin: 0.5rem 0 0.2rem 0;
-	font-size: 1.5rem;
-	font-weight: 600;
-}
-.DetailView__species,
-.DetailView__gender {
-	margin: 0.1rem 0;
-	color: #666;
-	font-size: 1rem;
-}
-.DetailView__loading,
-.DetailView__not-found {
-	margin-top: 2rem;
-	color: #888;
+
+	&__loading {
+		margin-top: 2rem;
+		color: #888;
+	}
+
+	&__not-found {
+		margin-top: 2rem;
+		color: #888;
+	}
+
+	&__card {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		background: #fff;
+		border-radius: 12px;
+		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+		padding: 2rem 2.5rem;
+		min-width: 260px;
+	}
+
+	&__image {
+		width: 120px;
+		height: 120px;
+		border-radius: 50%;
+		object-fit: cover;
+		margin-bottom: 1rem;
+	}
+
+	&__name {
+		margin: 0.5rem 0 0.2rem 0;
+		font-size: 1.5rem;
+		font-weight: 600;
+	}
+
+	&__species,
+	&__gender {
+		margin: 0.1rem 0;
+		color: #666;
+		font-size: 1rem;
+	}
 }
 </style>

@@ -58,7 +58,7 @@ function saveFavorite() {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .CharacterCard {
 	color: inherit;
 	border-radius: 1rem;
@@ -69,59 +69,66 @@ function saveFavorite() {
 	flex-direction: column;
 	align-items: center;
 	transition: all 0.3s;
-}
-.CharacterCard:hover {
-	box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
-	border: 1.5px solid var(--color-border-hover, #cccccc);
-	background-color: antiquewhite;
-	transform: scale(1.09);
-}
-.CharacterCard__image {
-	object-fit: cover;
-	margin-bottom: 1rem;
-	border: 2px solid var(--color-border, #e0e0e0);
-}
-.CharacterCard__title {
-	font-size: 1.5rem;
-	margin-bottom: 0.75rem;
-	color: var(--color-heading, #2c3e50);
-	text-align: center;
-}
-.CharacterCard__actions {
-	display: grid;
-	grid-template-columns: repeat(2, 1fr);
-	gap: 1rem;
-	justify-content: space-between;
-	width: 100%;
-}
-.CharacterCard__description {
-	font-size: 1rem;
-	color: var(--color-text, #2c3e50);
-	text-align: left;
-	width: 100%;
-}
-.CharacterCard__button--favorite,
-.CharacterCard__button--detail {
-	margin-top: 1rem;
-	padding: 0.5rem 1rem;
-	border: none;
-	border-radius: 0.5rem;
-	background-color: #ffcc00;
-	text-align: center;
-	font-size: 0.9rem;
-	color: #2c3e50;
-	font-weight: bold;
-	cursor: pointer;
-	transition: background 0.2s;
-	text-decoration: none;
-}
-.CharacterCard__button--favorite:hover,
-.CharacterCard__button--detail:hover {
-	background-color: #ffd700;
-}
-.CharacterCard__button--favorite--active {
-	background-color: #ff9800;
-	color: #fff;
-	border: 2px solid #ff9800;
+
+	&:hover {
+		box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+		border: 1.5px solid var(--color-border-hover, #cccccc);
+		background-color: antiquewhite;
+		transform: scale(1.09);
+	}
+
+	&__image {
+		object-fit: cover;
+		margin-bottom: 1rem;
+		border: 2px solid var(--color-border, #e0e0e0);
+	}
+
+	&__title {
+		font-size: 1.5rem;
+		margin-bottom: 0.75rem;
+		color: var(--color-heading, #2c3e50);
+		text-align: center;
+	}
+
+	&__actions {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 1rem;
+		justify-content: space-between;
+		width: 100%;
+	}
+
+	&__description {
+		font-size: 1rem;
+		color: var(--color-text, #2c3e50);
+		text-align: left;
+		width: 100%;
+	}
+
+	&__button--favorite,
+	&__button--detail {
+		margin-top: 1rem;
+		padding: 0.5rem 1rem;
+		border: none;
+		border-radius: 0.5rem;
+		background-color: #ffcc00;
+		text-align: center;
+		font-size: 0.9rem;
+		color: #2c3e50;
+		font-weight: bold;
+		cursor: pointer;
+		transition: background 0.2s;
+		text-decoration: none;
+
+		&:hover {
+			background-color: #ffd700;
+		}
+	}
+
+	&__button--favorite--active {
+		background-color: #ff9800;
+		color: #fff;
+		border: 2px solid #ff9800;
+	}
 }
 </style>

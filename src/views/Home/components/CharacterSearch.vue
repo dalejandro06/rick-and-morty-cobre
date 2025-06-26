@@ -3,7 +3,7 @@
 		<input
 			v-model="model"
 			type="text"
-			placeholder="Buscar personaje..."
+			placeholder="Buscar un personaje..."
 			class="character-search__input"
 		/>
 	</div>
@@ -13,26 +13,26 @@
 const model = defineModel();
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .character-search {
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	margin-bottom: 1rem;
-}
 
-.character-search__input {
-	width: 100%;
-	max-width: 400px;
-	padding: 0.5rem 1rem;
-	border: 1px solid #ccc;
-	border-radius: 4px;
-	font-size: 1rem;
-	outline: none;
-	transition: border-color 0.2s;
-}
+	&__input {
+		width: 100%;
+		max-width: 400px;
+		padding: 0.5rem 1rem;
+		border: 1px solid #ccc;
+		border-radius: 4px;
+		font-size: 1rem;
+		outline: none;
+		transition: border-color 0.2s;
 
-.character-search__input:focus {
-	border-color: #42b983;
+		&:focus {
+			border-color: #42b983;
+		}
+	}
 }
 </style>
