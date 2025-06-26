@@ -13,16 +13,13 @@ export const useFavoritesStore = defineStore('favorites-store', () => {
 
 	const toggleFavorite = async (character: ICharacter) => {
 		const currentFavorites = await getStoredFavorites();
-
-		const isFavoriteStored = currentFavorites.find((favorite) => favorite.id === character.id);
-
-		// Delete favorite from storage
+		const isFavoriteStored = currentFavorites.some((favorite) => favorite.id === character.id);
 		if (isFavoriteStored) {
 			favorites.value = currentFavorites.filter((favorite) => favorite.id !== character.id);
 		} else {
-			favorites.value.push(character);
-			saveFavoriteCharacter(favorites.value);
+			favorites.value = [...currentFavorites, character];
 		}
+		saveFavoriteCharacter(favorites.value);
 	};
 
 	return {
