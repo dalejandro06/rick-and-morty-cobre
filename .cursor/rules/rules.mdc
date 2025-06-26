@@ -1,0 +1,86 @@
+---
+description: Usa este archivo para cuando te pida crear componentes de vue
+globs: 
+alwaysApply: false
+---
+# Reglas de Creación de Componentes Vue.js
+
+## Nomenclatura de Archivos
+- Usar **CamelCase** para nombres de archivos de componentes
+- Ejemplo: `UserProfile.vue`, `DataTable.vue`
+- Asegurate de que sean multi word
+  - Malo: Table.vue
+  - Bueno: SearchTable.vue
+
+## Script Setup
+- Siempre usar la sintaxis `<script setup lang="ts">`
+- No es necesario importar explícitamente defineProps, defineEmits, etc. (auto-importados)
+
+## Nomenclatura de Clases CSS (Metodología BEM)
+- Usar formato BEM (Block Element Modifier): `Block__element--modifier`
+- Ejemplos:
+  - `.userCard__avatar--large`
+  - `.dataTable__row--selected`
+  - `.navigationMenu__item--active`
+
+## Definición de Props
+- Definir props usando **interfaces** en lugar de definiciones inline de props
+- Ejemplo:
+```typescript
+interface UserCardProps {
+  name: string
+  email: string
+  avatar?: string
+  isOnline?: boolean
+}
+
+const props = defineProps<UserCardProps>()
+```
+
+## Plantilla de Estructura de Componente
+```vue
+<template>
+  <div class="componentName">
+    <!-- Plantilla del componente -->
+  </div>
+</template>
+
+<script setup lang="ts">
+// Definir interfaces para props
+interface ComponentNameProps {
+  // Define tus props aquí
+}
+
+// Definir interfaces para emits
+interface ComponentNameEmits {
+  // Define tus emits aquí
+}
+
+const props = defineProps<ComponentNameProps>()
+const emit = defineEmits<ComponentNameEmits>()
+
+// Lógica del componente aquí
+</script>
+
+<style scoped>
+.componentName {
+  /* Estilos del bloque */
+}
+
+.componentName__element {
+  /* Estilos del elemento */
+}
+
+.componentName__element--modifier {
+  /* Estilos del modificador */
+}
+</style>
+```
+
+## Directrices Adicionales
+- Usar TypeScript para todos los componentes
+- Preferir Composition API con `<script setup>`
+- Usar estilos con scope por defecto
+- Seguir las mejores prácticas de Vue 3
+- Usar elementos HTML semánticos
+- Implementar atributos de accesibilidad apropiados 
