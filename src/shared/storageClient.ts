@@ -1,5 +1,5 @@
 export const StorageClient = {
-	storage: sessionStorage,
+	storage: localStorage,
 
 	getItem(key: string) {
 		const item = this.storage.getItem(key);

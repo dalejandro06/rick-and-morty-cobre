@@ -4,22 +4,23 @@
 			<CharacterSearch v-model="searchModel" />
 		</div>
 		<h1 class="Home__title">{{ $t('home.title') }}</h1>
-		<LoadingSkeleton v-if="store.loading" />
+		<LoadingSkeleton v-if="characterStore.loading" />
 		<div v-else class="Home__characters">
 			<CharacterCard
-				:is-favorite="false"
-				v-for="character in store.characters"
+				:is-favorite="favoritesStore.favorites.some((item) => item.id === character.id)"
+				v-for="character in characterStore.characters"
 				:key="character.id"
 				:character="character"
 				showSaveBtn
+				@save-favorite="favoritesStore.toggleFavorite(character)"
 			/>
 		</div>
 		<div class="Home__Pagination">
 			<CustomPagination
-				:current-page="store.paginationInfo.currentPage"
-				:total-pages="store.paginationInfo.totalPages"
-				@prev="store.onPrevPage"
-				@next="store.onNextPage"
+				:current-page="characterStore.paginationInfo.currentPage"
+				:total-pages="characterStore.paginationInfo.totalPages"
+				@prev="characterStore.onPrevPage"
+				@next="characterStore.onNextPage"
 			/>
 		</div>
 	</main>
@@ -33,16 +34,18 @@ import CustomPagination from './components/CustomPagination.vue';
 import CharacterSearch from './components/CharacterSearch.vue';
 import { debounce } from '@/utils/debounce';
 import LoadingSkeleton from './components/LoadingSkeleton.vue';
+import { useFavoritesStore } from '@/stores/useFavoritesStore';
 
 const searchModel = ref('');
-const store = useCharactersStore();
+const characterStore = useCharactersStore();
+const favoritesStore = useFavoritesStore();
 
 watch(searchModel, () => {
-	debounce(() => store.handleSearch(searchModel.value), 300)();
+	debounce(() => characterStore.handleSearch(searchModel.value), 300)();
 });
 
 onMounted(async () => {
-	await store.setCharacters();
+	await characterStore.setCharacters();
 });
 </script>
 
