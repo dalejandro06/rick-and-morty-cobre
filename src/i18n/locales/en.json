@@ -1,0 +1,34 @@
+{
+  "navigation": {
+    "home": "Home",
+    "favorites": "Favorites"
+  },
+  "home": {
+    "title": "Characters",
+    "search": {
+      "placeholder": "Search a character..."
+    },
+    "pagination": {
+      "previous": "Previous",
+      "next": "Next",
+      "page": "Page {current} of {total}"
+    }
+  },
+  "character": {
+    "status": "Status",
+    "gender": "Gender",
+    "species": "Species",
+    "actions": {
+      "favorite": "Favorite",
+      "detail": "Go to detail"
+    }
+  },
+  "detail": {
+    "loading": "Loading...",
+    "notFound": "Character not found."
+  },
+  "favorites": {
+    "title": "Favorites",
+    "empty": "You don't have favorite characters yet."
+  }
+}

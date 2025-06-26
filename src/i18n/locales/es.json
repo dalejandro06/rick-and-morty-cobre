@@ -1,0 +1,34 @@
+{
+  "navigation": {
+    "home": "Inicio",
+    "favorites": "Favoritos"
+  },
+  "home": {
+    "title": "Personajes",
+    "search": {
+      "placeholder": "Buscar un personaje..."
+    },
+    "pagination": {
+      "previous": "Anterior",
+      "next": "Siguiente",
+      "page": "Página {current} de {total}"
+    }
+  },
+  "character": {
+    "status": "Estado",
+    "gender": "Género",
+    "species": "Especie",
+    "actions": {
+      "favorite": "Favorito",
+      "detail": "Ir al detalle"
+    }
+  },
+  "detail": {
+    "loading": "Cargando...",
+    "notFound": "Personaje no encontrado."
+  },
+  "favorites": {
+    "title": "Favoritos",
+    "empty": "No tienes personajes favoritos aún."
+  }
+}

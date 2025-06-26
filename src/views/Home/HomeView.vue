@@ -3,7 +3,7 @@
 		<div class="Home__search">
 			<CharacterSearch v-model="searchModel" />
 		</div>
-		<h1 class="Home__title">Personajes</h1>
+		<h1 class="Home__title">{{ $t('home.title') }}</h1>
 		<LoadingSkeleton v-if="store.loading" />
 		<div v-else class="Home__characters">
 			<CharacterCard

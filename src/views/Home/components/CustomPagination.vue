@@ -1,8 +1,12 @@
 <template>
 	<div class="CustomPagination">
-		<button @click="$emit('prev')" :disabled="currentPage <= 1">Anterior</button>
-		<span>Página {{ currentPage }} de {{ totalPages }}</span>
-		<button @click="$emit('next')" :disabled="currentPage >= totalPages">Siguiente</button>
+		<button @click="$emit('prev')" :disabled="currentPage <= 1">
+			{{ $t('home.pagination.previous') }}
+		</button>
+		<span>{{ $t('home.pagination.page', { current: currentPage, total: totalPages }) }}</span>
+		<button @click="$emit('next')" :disabled="currentPage >= totalPages">
+			{{ $t('home.pagination.next') }}
+		</button>
 	</div>
 </template>
 

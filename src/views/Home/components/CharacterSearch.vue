@@ -3,7 +3,7 @@
 		<input
 			v-model="model"
 			type="text"
-			placeholder="Buscar un personaje..."
+			:placeholder="$t('home.search.placeholder')"
 			class="character-search__input"
 		/>
 	</div>

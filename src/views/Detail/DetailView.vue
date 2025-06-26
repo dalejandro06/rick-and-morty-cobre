@@ -1,13 +1,13 @@
 <template>
 	<div class="DetailView">
-		<div v-if="loading" class="DetailView__loading">Loading...</div>
+		<div v-if="loading" class="DetailView__loading">{{ $t('detail.loading') }}</div>
 		<div v-else-if="character" class="DetailView__card">
 			<img :src="character.image" :alt="character.name" class="DetailView__image" />
 			<h2 class="DetailView__name">{{ character.name }}</h2>
 			<p class="DetailView__species">{{ character.species }}</p>
 			<p class="DetailView__gender">{{ character.gender }}</p>
 		</div>
-		<div v-else class="DetailView__not-found">Character not found.</div>
+		<div v-else class="DetailView__not-found">{{ $t('detail.notFound') }}</div>
 	</div>
 </template>
 

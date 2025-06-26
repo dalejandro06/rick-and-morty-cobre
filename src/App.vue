@@ -1,14 +1,18 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router';
+import LanguageSwitcher from '@/components/LanguageSwitcher.vue';
 </script>
 
 <template>
 	<div class="App">
 		<header class="App__header">
 			<nav class="App__nav">
-				<RouterLink to="/" class="App__nav-link">Home</RouterLink>
-				<RouterLink to="/favorites" class="App__nav-link">Favoritos</RouterLink>
+				<RouterLink to="/" class="App__nav-link">{{ $t('navigation.home') }}</RouterLink>
+				<RouterLink to="/favorites" class="App__nav-link">{{
+					$t('navigation.favorites')
+				}}</RouterLink>
 			</nav>
+			<LanguageSwitcher />
 		</header>
 		<RouterView />
 	</div>
@@ -21,7 +25,8 @@ import { RouterLink, RouterView } from 'vue-router';
 
 	&__header {
 		display: flex;
-		justify-content: center;
+		justify-content: space-between;
+		align-items: center;
 		margin-bottom: 2rem;
 		padding: 1rem 0;
 		border-bottom: 2px solid #e5e7eb;

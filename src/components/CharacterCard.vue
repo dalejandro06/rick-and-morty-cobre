@@ -3,9 +3,15 @@
 		<img :src="image" :alt="name" class="CharacterCard__image" width="304" height="304" />
 		<h2 class="CharacterCard__title">{{ name }}</h2>
 		<div class="CharacterCard__description">
-			<p><strong>Status:</strong> {{ state }}</p>
-			<p><strong>Género:</strong> {{ gender }}</p>
-			<p><strong>Especie:</strong> {{ specimen }}</p>
+			<p>
+				<strong>{{ $t('character.status') }}:</strong> {{ state }}
+			</p>
+			<p>
+				<strong>{{ $t('character.gender') }}:</strong> {{ gender }}
+			</p>
+			<p>
+				<strong>{{ $t('character.species') }}:</strong> {{ specimen }}
+			</p>
 		</div>
 		<div class="CharacterCard__actions">
 			<button
@@ -16,14 +22,14 @@
 				]"
 				@click.stop="saveFavorite"
 			>
-				Favorito
+				{{ $t('character.actions.favorite') }}
 			</button>
 			<RouterLink
 				:to="`/detail/${id}`"
 				class="CharacterCard__button--detail"
 				@click.stop="saveFavorite"
 			>
-				Ir al detalle
+				{{ $t('character.actions.detail') }}
 			</RouterLink>
 		</div>
 	</article>
