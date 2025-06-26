@@ -10,12 +10,7 @@
 				:is-favorite="false"
 				v-for="character in store.characters"
 				:key="character.id"
-				:image="character.image"
-				:specimen="character.species"
-				:name="character.name"
-				:state="character.status"
-				:gender="character.gender"
-				:id="character.id"
+				:character="character"
 				showSaveBtn
 			/>
 		</div>

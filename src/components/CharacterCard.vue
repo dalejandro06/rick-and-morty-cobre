@@ -1,16 +1,22 @@
 <template>
 	<article class="CharacterCard">
-		<img :src="image" :alt="name" class="CharacterCard__image" width="304" height="304" />
-		<h2 class="CharacterCard__title">{{ name }}</h2>
+		<img
+			:src="character.image"
+			:alt="character.name"
+			class="CharacterCard__image"
+			width="304"
+			height="304"
+		/>
+		<h2 class="CharacterCard__title">{{ character.name }}</h2>
 		<div class="CharacterCard__description">
 			<p>
-				<strong>{{ $t('character.status') }}:</strong> {{ state }}
+				<strong>{{ $t('character.status') }}:</strong> {{ character.status }}
 			</p>
 			<p>
-				<strong>{{ $t('character.gender') }}:</strong> {{ gender }}
+				<strong>{{ $t('character.gender') }}:</strong> {{ character.gender }}
 			</p>
 			<p>
-				<strong>{{ $t('character.species') }}:</strong> {{ specimen }}
+				<strong>{{ $t('character.species') }}:</strong> {{ character.species }}
 			</p>
 		</div>
 		<div class="CharacterCard__actions">
@@ -25,7 +31,7 @@
 				{{ $t('character.actions.favorite') }}
 			</button>
 			<RouterLink
-				:to="`/detail/${id}`"
+				:to="`/detail/${character.id}`"
 				class="CharacterCard__button--detail"
 				@click.stop="saveFavorite"
 			>
@@ -36,31 +42,21 @@
 </template>
 
 <script setup lang="ts">
+import type { ICharacter } from '@/shared/entities';
 import { RouterLink } from 'vue-router';
 
-const props = defineProps<{
-	image: string;
-	name: string;
-	state: string;
-	gender: string;
-	specimen: string;
-	id: number;
+interface CharacterCardProps {
+	character: ICharacter;
+	isFavorite: boolean;
 	showSaveBtn: boolean;
-	isFavorite?: boolean;
-}>();
+}
+
+const props = defineProps<CharacterCardProps>();
 
 const emit = defineEmits(['save-favorite']);
 
 function saveFavorite() {
-	emit('save-favorite', {
-		id: props.id,
-		name: props.name,
-		image: props.image,
-		status: props.state,
-		gender: props.gender,
-		species: props.specimen,
-		location: { name: '' }, // Default empty location since it's not provided
-	});
+	emit('save-favorite', props.character);
 }
 </script>
 
@@ -80,7 +76,7 @@ function saveFavorite() {
 		box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
 		border: 1.5px solid var(--color-border-hover, #cccccc);
 		background-color: antiquewhite;
-		transform: scale(1.09);
+		transform: scale(1.01);
 	}
 
 	&__image {
