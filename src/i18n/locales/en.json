@@ -20,6 +20,7 @@
     "species": "Species",
     "actions": {
       "favorite": "Favorite",
+      "unfavorite": "Remove",
       "detail": "Go to detail"
     }
   },

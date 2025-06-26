@@ -19,7 +19,8 @@
     "gender": "Género",
     "species": "Especie",
     "actions": {
-      "favorite": "Favorito",
+      "favorite": "Guardar",
+      "unfavorite": "Eliminar",
       "detail": "Ir al detalle"
     }
   },

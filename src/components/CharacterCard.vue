@@ -28,7 +28,7 @@
 				]"
 				@click.stop="saveFavorite"
 			>
-				{{ $t('character.actions.favorite') }}
+				{{ isFavorite ? $t('character.actions.unfavorite') : $t('character.actions.favorite') }}
 			</button>
 			<RouterLink
 				:to="`/detail/${character.id}`"

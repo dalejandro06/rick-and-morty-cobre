@@ -2,27 +2,26 @@
 	<div class="FavoritesView">
 		<CharacterCard
 			:show-save-btn="false"
-			v-for="character in favorites"
+			v-for="character in favoritesStore.favorites"
 			:key="character.id"
 			:character="character"
 			:is-favorite="false"
 		/>
-		<div v-if="favorites.length === 0" class="FavoritesView__empty">
+		<div v-if="favoritesStore.favorites.length === 0" class="FavoritesView__empty">
 			No tienes favoritos guardados.
 		</div>
 	</div>
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from 'vue';
+import { onMounted } from 'vue';
 import CharacterCard from '@/components/CharacterCard.vue';
-import type { ICharacter } from '@/shared/entities';
-import { getStoredFavorites } from './services/characters';
+import { useFavoritesStore } from '@/stores/useFavoritesStore';
 
-const favorites = ref<ICharacter[]>([]);
+const favoritesStore = useFavoritesStore();
 
-onMounted(() => {
-	getStoredFavorites().then((data) => (favorites.value = data));
+onMounted(async () => {
+	await favoritesStore.getFavorites();
 });
 </script>
 

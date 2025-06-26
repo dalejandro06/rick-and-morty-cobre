@@ -6,8 +6,12 @@ import { ref } from 'vue';
 export const useFavoritesStore = defineStore('favorites-store', () => {
 	const favorites = ref<ICharacter[]>([]);
 
+	const getFavorites = async () => {
+		const storedFavorites = await getStoredFavorites();
+		favorites.value = storedFavorites;
+	};
+
 	const toggleFavorite = async (character: ICharacter) => {
-		console.log('character', character);
 		const currentFavorites = await getStoredFavorites();
 
 		const isFavoriteStored = currentFavorites.find((favorite) => favorite.id === character.id);
@@ -24,5 +28,6 @@ export const useFavoritesStore = defineStore('favorites-store', () => {
 	return {
 		favorites,
 		toggleFavorite,
+		getFavorites,
 	};
 });

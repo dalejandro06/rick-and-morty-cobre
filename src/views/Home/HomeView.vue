@@ -7,7 +7,7 @@
 		<LoadingSkeleton v-if="characterStore.loading" />
 		<div v-else class="Home__characters">
 			<CharacterCard
-				:is-favorite="favoritesStore.favorites.some((item) => item.id === character.id)"
+				:is-favorite="isFavorite(character)"
 				v-for="character in characterStore.characters"
 				:key="character.id"
 				:character="character"
@@ -35,6 +35,7 @@ import CharacterSearch from './components/CharacterSearch.vue';
 import { debounce } from '@/utils/debounce';
 import LoadingSkeleton from './components/LoadingSkeleton.vue';
 import { useFavoritesStore } from '@/stores/useFavoritesStore';
+import type { ICharacter } from '@/shared/entities';
 
 const searchModel = ref('');
 const characterStore = useCharactersStore();
@@ -46,7 +47,12 @@ watch(searchModel, () => {
 
 onMounted(async () => {
 	await characterStore.setCharacters();
+	await favoritesStore.getFavorites();
 });
+
+const isFavorite = (character: ICharacter) => {
+	return favoritesStore.favorites.some((item) => item.id === character.id);
+};
 </script>
 
 <style scoped lang="scss">
